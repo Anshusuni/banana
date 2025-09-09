@@ -1,9 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/process', methods=['POST'])
+@app.route('/')
+def home():
+    return "<h2>Hello from Flask on PythonAnywhere!</h2>"
+
+@app.route('/process')
 def process():
-    data = request.json
-    name = data.get("name", "Guest")
-    return jsonify({"result": f"Hello {name}, Python program executed!"})
+    return "<p>Processing done ✅</p>"
